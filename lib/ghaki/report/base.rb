@@ -1,27 +1,27 @@
 require 'ghaki/logger/mixin'
-require 'ghaki/stats/base'
+require 'ghaki/stats/mixin'
 
 module Ghaki  #:nodoc:
 module Report #:nodoc:
 
 class Base
   include Ghaki::Logger::Mixin
+  include Ghaki::Stats::Mixin
 
   ######################################################################
   class << self
     attr_accessor :report_name
   end
-  attr_accessor :stats
 
   ######################################################################
   def initialize opts={}
-    self.report_name = opts[:report_name] if opts.has_key?(:report_name)
-    @stats = opts[:stats] || Ghaki::Stats::Base.new
-    if opts.has_key?(:logger)
+    self.report_name = opts[:report_name] unless opts[:report_name].nil?
+    @stats = opts[:stats]
+    if not opts[:logger].nil?
       @logger = opts[:logger]
-    elsif opts.has_key?(:log_file_name)
+    elsif not opts[:log_file_name].nil?
       @logger = Ghaki::Logger::Base.new( :file_name => opts[:log_file_name] )
-    elsif opts.has_key?(:log_file_handle)
+    elsif not opts[:log_file_handle].nil?
       @logger = Ghaki::Logger::Base.new( :file_handle => opts[:log_file_handle] )
     end
   end
