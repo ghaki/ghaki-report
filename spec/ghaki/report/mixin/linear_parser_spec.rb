@@ -2,7 +2,7 @@ require 'mocha_helper'
 require 'ghaki/report/base'
 require 'ghaki/report/mixin/linear_parser'
 
-module Ghaki module Report module Mixin module LinearParserTesting
+module Ghaki module Report module Mixin module LinearParser_Testing
 describe LinearParser do
 
   before(:all) do
@@ -19,21 +19,49 @@ describe LinearParser do
 
   subject do @parser end
 
-  context 'including objects' do
-    it { should respond_to :parser_engine }
-    it { should respond_to :parser_unknown_max }
-    it { should respond_to :parser_unknown }
-    it { should respond_to :parser_matched }
-    it { should respond_to :parser_skipped }
-    it { should respond_to :parser_invalid }
-    it { should respond_to :parser_error_max }
-    it { should respond_to :parser_error }
-    it { should respond_to :parser_warn_max }
-    it { should respond_to :parser_warn }
-  end
+  it { should respond_to :parser_unknown_max  }
+  it { should respond_to :parser_unknown_max= }
+  it { should respond_to :parser_error_max  }
+  it { should respond_to :parser_error_max= }
+  it { should respond_to :parser_warn_max  }
+  it { should respond_to :parser_warn_max= }
 
   before(:each) do
     subject.stats.clear
+  end
+
+  describe '#parser_startup' do
+    it 'defaults parser unknown max'
+    it 'defaults parser warning max'
+    it 'defaults parser error max'
+    it 'resets parser stats'
+    it 'zeroes current line count'
+  end
+
+  describe '#parser_cleanup' do
+    it { should respond_to :parser_cleanup }
+  end
+
+  describe '#parser_advance' do
+    it 'increments line count'
+    it 'sets current line'
+    it 'increments input lines read'
+  end
+
+  describe '#parser_engine' do
+    it 'calls parser startup'
+    it 'calls parser advance for each line'
+    it 'yields for each line'
+    it 'calls parser cleanup'
+  end
+
+  describe '#parser_reset_stats' do
+    it 'clears existing stats'
+    it 'zeroes input lines read'
+    it 'zeroes input lines skipped'
+    it 'zeroes input lines matched'
+    it 'zeroes input lines invalid'
+    it 'zeroes input lines unknown'
   end
 
   describe '#parser_matched' do
