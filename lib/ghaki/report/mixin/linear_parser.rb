@@ -15,6 +15,7 @@ module LinearParser
   PARSER_ERROR_UNLIMITED = 0
   PARSER_ERROR_MAX_DEF = 1
 
+  attr_reader :parser_curr_line, :parser_curr_lcnt
   attr_accessor :parser_unknown_max,
     :parser_error_max, :parser_warn_max
 
