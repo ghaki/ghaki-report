@@ -1,4 +1,3 @@
-require 'mocha_helper'
 require 'ghaki/report/base'
 
 module Ghaki module Report module BaseTesting

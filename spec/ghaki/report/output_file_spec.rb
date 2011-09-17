@@ -1,4 +1,3 @@
-require 'mocha_helper'
 require 'ghaki/report/output_file'
 
 module Ghaki module Report module OutputFileTesting

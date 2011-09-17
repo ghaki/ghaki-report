@@ -1,6 +1,5 @@
 require 'ghaki/logger/spec_helper'
 require 'ghaki/stats/spec_helper'
-require 'mocha_helper'
 require 'ghaki/report/base'
 require 'ghaki/report/mixin/linear_parser'
 
