@@ -1,4 +1,4 @@
-= Ghaki Report - Basic reporting
+= Ghaki Report - Basic reporting helpers
 
 Ghaki Report is a collection of extensions for basic reporting.
 
@@ -6,7 +6,7 @@ Ghaki Report is a collection of extensions for basic reporting.
 
 The latest version of Ghaki Report can be found at
 
-* git:/home/ghaki/git-archive/ghaki-report.git
+* git@github.com:ghaki/ghaki-report.git
 
 == Installation
 
