@@ -1,15 +1,16 @@
+require 'ghaki/report/mixin/basic'
+require 'ghaki/report/mixin/linear_parser'
 require 'ghaki/logger/spec_helper'
 require 'ghaki/stats/spec_helper'
-require 'ghaki/report/base'
-require 'ghaki/report/mixin/linear_parser'
 
 module Ghaki module Report module Mixin module LinearParser_Testing
 describe LinearParser do
   include Ghaki::Logger::SpecHelper
   include Ghaki::Stats::SpecHelper
 
-  class MyParser < Base
-    include LinearParser
+  class MyParser
+    include Ghaki::Report::Mixin::Basic
+    include Ghaki::Report::Mixin::LinearParser
   end
 
   before(:each) do
@@ -31,10 +32,6 @@ describe LinearParser do
   it { should respond_to :parser_error_max= }
   it { should respond_to :parser_warn_max  }
   it { should respond_to :parser_warn_max= }
-
-  before(:each) do
-    @stats.clear
-  end
 
   describe '#parser_startup' do
     it 'defaults parser unknown max' do

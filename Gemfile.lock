@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ghaki-report (1.1.5)
+    ghaki-report (2011.12.06.1)
       ghaki-app (>= 2011.11.29.1)
       ghaki-ext-file (>= 2011.11.29.1)
       ghaki-logger (>= 2011.11.29.1)
@@ -14,11 +14,11 @@ GEM
     diff-lcs (1.1.3)
     ghaki-app (2011.11.29.1)
     ghaki-bool (2011.11.29.1)
-    ghaki-ext-file (2011.11.29.1)
+    ghaki-ext-file (2011.12.03.1)
     ghaki-logger (2011.11.29.1)
       ghaki-app (>= 2011.11.29.1)
       ghaki-bool (>= 2011.11.29.1)
-    ghaki-match (2011.11.30.1)
+    ghaki-match (2011.12.04.2)
       ghaki-bool (>= 2011.11.29.1)
     ghaki-stats (2011.11.29.1)
       ghaki-app (>= 2011.11.29.1)
